@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bulma Layout</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css"/>
+    <link rel="stylesheet" href="/fontawesome/css/fontawesome.min.css"/>
+    <link rel="stylesheet" href="/fontawesome/css/solid.min.css"/>
+    <style>
+        .he {
+            height: 100vh;
+        }
+        .con {
+            border: grey 2px solid;
+            background-color: red;
+        }
+        .head, .foot {
+            border: green 2px solid;
+            background-color: pink;
+        }
+        .bod {
+            border: fuchsia 2px solid;
+            background-color: yellow;
+            overflow-y: auto;
+            height: 0;
+        }
+    </style>
+</head>
+<body class="">     
+    <section class="hero he">
+        <div class="hero-header head">
+            <nav class="navbar" role="navigation" aria-label="main navigation">
+                <div class="navbar-brand">
+                    <a class="navbar-item" href="/">
+                        <img src="logo.png" alt="Logo"/>
+                        <span>
+                            Recordings App
+                        </span>
+                    </a>
+                    <a role="button" id="navMenuButton" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                    </a>
+                </div>
+                <div id="navMenu" class="navbar-menu">
+                    <div class="navbar-start">
+                        <a class="navbar-item">Calls</a>
+                        <a class="navbar-item">Voicemail</a>
+                    </div>
+                    <div class="navbar-end">
+                        <div class="navbar-item has-dropdown is-hoverable">
+                            <a class="navbar-link">
+                                <span class="icon">
+                                    <i class="fa-solid fa-user"></i>
+                                </span>
+                                <span>
+                                    Dan Hyrjak
+                                </span>
+                            </a>
+                            <div class="navbar-dropdown">
+                                <a class="navbar-item">
+                                    <span>
+                                        Logout
+                                    </span>
+                                    <span class="icon">
+                                        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <div class="hero-body p-5 bod">
+            <div class="container con">
+                <div class="title">
+                    The Title
+                </div>
+                <div class="subtitle">
+                    The Subtitle
+                </div>
+                <p>
+                    Some controls here
+                </p>
+                <div id="par">
+                </div>
+            </div>
+        </div>
+        <div class="hero-footer foot">
+            Foot
+        </div>
+    </section>
+    <script type="text/javascript">
+        
+        document.getElementById("navMenuButton").onclick = (e) => {
+            const el = e.currentTarget;
+            const targetId = el.dataset.target;
+            const target = document.getElementById(targetId);
+            el.classList.toggle('is-active');
+            target.classList.toggle('is-active');
+        }
+
+        const par = document.getElementById("par");
+        for(var i =1,l=25; i<l; i++){
+            const div = document.createElement("div");
+            div.innerText = `Item Number ${i}`;
+            div.style.padding = '5px';
+            div.style.backgroundColor = i % 2 ? 'red' : 'green';
+            div.style.marginBottom = '2px';
+            par.appendChild(div);
+        }
+    </script>
+</body>
+</html>
